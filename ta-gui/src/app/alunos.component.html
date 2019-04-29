@@ -12,6 +12,9 @@
    <td *ngIf="cpfduplicado">
      Já existe um aluno com esse CPF ou com esse github
    </td>
+   <td *ngIf="alunoRemovido">
+     Aluno removido com sucesso
+   </td>
 </tr>
 <tr>
    <td><label>e-mail </label></td>
@@ -35,7 +38,7 @@
    <td>{{a.cpf}}</td>
    <td>{{a.email}}</td>
    <td>{{a.github}}</td>
-   <td><button (click)="removerAluno(a)">Remover</button></td>
+   <td><button (click)="deletarAluno(a)">Remover</button></td>
 </tr>
 
 </table>

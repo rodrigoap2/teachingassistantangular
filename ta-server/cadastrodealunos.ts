@@ -13,8 +13,10 @@ export class CadastroDeAlunos {
     return result;
   }
 
-  remover(aluno: Aluno): void{
-    
+  deletar(aluno: Aluno): Aluno {
+    var result: Aluno = this.alunos.find(a => a.cpf == aluno.cpf);
+    if (result) this.alunos.splice(this.alunos.indexOf(result), 1);
+    return result;
   }
 
   cpfNaoCadastrado(cpf: string): boolean {

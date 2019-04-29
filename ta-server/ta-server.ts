@@ -1,7 +1,7 @@
 import express = require('express');
 import bodyParser = require("body-parser");
 
-import {Aluno} from '../../gui/ta-gui/src/app/aluno';
+import {Aluno} from 'C:/Faculdade/git/teachingassistantangular/ta-gui/src/app/aluno';
 import {CadastroDeAlunos} from './cadastrodealunos';
 
 var app = express();
@@ -42,6 +42,17 @@ app.put('/aluno', function (req: express.Request, res: express.Response) {
     res.send({"failure": "O aluno não pode ser atualizado"});
   }
 })
+
+app.put('/alunoDelete', function (req, res) {
+    var aluno = req.body;
+    aluno = cadastro.deletar(aluno);
+    if (aluno) {
+        res.send({ "success": "O aluno foi deletado com sucesso" });
+    }
+    else {
+        res.send({ "failure": "O aluno não pode ser deletado" });
+    }
+});
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
